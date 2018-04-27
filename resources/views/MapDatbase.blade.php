@@ -16,7 +16,7 @@
       html, body {
         height: 90%;
         margin: 0;
-        padding: 10ex;
+        padding: 5ex;
       }
     </style>
     
@@ -59,7 +59,6 @@
           // === CALL SUCCESS FUNCTION====
           function success(position)
           { 
-            console.log("hello2");
             
             var latval=JSON.parse(position.coords.latitude);
             var lngval=JSON.parse(position.coords.longitude);
@@ -93,7 +92,7 @@
             map = new google.maps.Map(document.getElementById('map'),
             {
               center:myLatLng,
-              zoom:14
+              zoom:15
             });
 
             var marker = new google.maps.Marker({
@@ -111,6 +110,7 @@
           {
             var marker = new google.maps.Marker
             ({
+              zoom:10,
               position:latlng,
               map:map,
               
@@ -155,7 +155,6 @@
           {
              
              $.post("/showDataMap",{'lat':lat,'lng':lng},function(match){
-              console.log(match);
                 $.each(match,function (i,val) { 
                  
                   var  glatval=val.latitude;
